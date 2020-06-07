@@ -86,7 +86,6 @@ public class MemberDAO {
 				 memberBean.setEmail(rs.getString("email"));
 				 memberBean.setAddress1(rs.getString("address1"));
 				 memberBean.setAddress2(rs.getString("address2"));
-				 System.out.println(memberBean.getAddress2());
 				 memberBean.setAddress3(rs.getString("address3"));
 	 
 

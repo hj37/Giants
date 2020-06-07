@@ -266,7 +266,6 @@ $(document).ready(function() {
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean memberBean = memberdao.Memberinfo(id);
 		String Address2 = memberBean.getAddress2();
-		System.out.println(Address2);
 %>				
 				 
  <div id="footer" class="wrapper style2">

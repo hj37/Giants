@@ -77,9 +77,10 @@
 	//현재 보여질(선택한) 페이지번호 가져오기 .	
 	String pageNum = request.getParameter("pageNum");
 	//현재보여질(선택한) 페이지번호가 없으면 1페이지 처리 	
-	if(pageNum == null){
+	if(pageNum == null || "".equals(pageNum)){
 		pageNum = "1";
 	}
+	
 	
 	//현재 보여질(선택한) 페이지번호 "1"을 -> 기본정수 1로 변경 
 	int currentPage = Integer.parseInt(pageNum); //현재 선택한 페이지 번호를 정수로 변환해서 저장 

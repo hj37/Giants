@@ -124,8 +124,8 @@
 									
 								}else{
 							%>
-									<section class="4u"> <a href="#" class="image featured"><img src="../images/pic01.jpg" width="50px" height="10px" alt=""></a>
-									<div class="box">
+									<section class="4u"> 
+									<div class="box" >
 										<a href="#" class="button">해당하는 글이 없습니다.</a> </div>
 									</section>
 							<% 	

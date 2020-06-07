@@ -90,7 +90,7 @@
 	<%	
 	//아래의 페이지번호 중 선택한 페이지번호가 없으면, 첫 notice.jsp 화면은 1페이지로 지정 
 	
-	if(pageNum == null){
+	if(pageNum == null || "".equals(pageNum)){
 		pageNum = "1";
 	}
 	

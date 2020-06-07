@@ -32,6 +32,21 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-wide.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<script type="text/javascript">
+		function contents(id,num){
+			if(id == null){
+				 window.alert("로그인 해주세요~");
+				 location.assign("login.jsp");
+			}else{
+				location.assign("content.jsp?num="+num);
+			}
+			
+		}
+
+		
+		
+		</script>
+		
 		<%
 			Document doc;
 		
@@ -127,6 +142,7 @@
 										<p>커뮤니티 게시판 최다 조회순</p>
 									
 										<%
+										String id = (String)session.getAttribute("id");
 										BoardDAO dao = new BoardDAO();
 										
 										List<BoardBean> list = dao.getReadBoardList();		//최다 조회순 
@@ -148,9 +164,9 @@
 									 			BoardBean bean = list.get(i);
 										%>
 										
-										
-											<tr>
-							 				<td><%=bean.getName() %></td>
+											
+											<tr onclick="contents('<%=id%>','<%=bean.getNum() %>');">							 				
+											<td><%=bean.getName() %></td>
 							 				<td><%=bean.getSubject() %></td>
 										    <td><%=new SimpleDateFormat("yyyy.MM.dd").format(bean.getDate()) %></td>
 										    <td><%=bean.getReadcount() %></td>		
@@ -227,11 +243,9 @@
 									<section>
 										<ul class="style">
 											<li class="fa fa-cogs">
-												<h3>Integer ultrices</h3>
-												<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span> </li>
-											<li class="fa fa-road">
-												<h3>Aliquam luctus</h3>
-												<span>In posuere eleifend odio. Quisque semper augue mattis wisi. Maecenas ligula. Pellentesque viverra vulputate enim. Aliquam erat volutpat. Maecenas condimentum enim tincidunt risus accumsan.</span> </li>
+												<h3>Lotte Giants</h3>
+												<span>한국 프로야구를 대표하는 명문구단</span> </li>
+											
 										</ul>
 									</section>
 								</div>
@@ -240,8 +254,9 @@
 					</div>
 
 	</div>
-
+	
 	<!-- Footer -->
+	<jsp:include page="bottom.jsp"/>
 	
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

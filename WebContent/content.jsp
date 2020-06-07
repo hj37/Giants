@@ -38,7 +38,10 @@
 			<link rel="stylesheet" href="css/style-wide.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 			<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
-	
+			
+
+			
+			
 <script type="text/javascript">
 	function deleterv(boardnum){
 		var num = prompt("삭제할 댓글 번호를 입력해주세요 : ", "");
@@ -88,7 +91,6 @@
     									memberInfo += "<td>" + jsonInfo.members[i].name + "</td>";
     									memberInfo += "<td>" + jsonInfo.members[i].comment + "</td>";
     									memberInfo += "<td>" + jsonInfo.members[i].reg + "</td></tr>";
-
     								}
     								    								
     								$("#tr").append(memberInfo + "<br>");
@@ -104,6 +106,7 @@
     			});
     	});    
     </script>
+
 
 
 		
@@ -136,6 +139,7 @@
 
 
 <%
+
 	/*글 상세보기 페이지 */
 	//notice.jsp페이지에서 글제목을 클릭해서 전달하여 넘어온 num,pageNum 한글처리 
 	request.setCharacterEncoding("UTF-8");
@@ -143,7 +147,9 @@
 	//notice.jsp페이지에서 글제목을 클릭해서 전달하여 넘어온 num, pageNum 가져오기
 	int num = Integer.parseInt(request.getParameter("num"));
 	String pageNum = request.getParameter("pageNum");
-
+	if(pageNum == null){
+		pageNum = "1";
+	}
 	//BoardDAO 객체 생성 bdao
 	BoardDAO dao = new BoardDAO();
 	
@@ -316,8 +322,8 @@ list = rvdao.getrvboard("board", num);
 		<input type="hidden" name="num" value=<%=num%>>
 		<input type="hidden" name="pageNum" value=<%=pageNum%>>
 		
-		<input type="button" class = "button alt" id="checkJson"  style="cursor: pointer;" value="댓글등록" > <br>
-		<input type="button" class = "button alt"  style="cursor: pointer;" value="댓글삭제" onclick="deleterv(<%=num%>);"> <br>
+		<input type="button" class = "button alt" id="checkJson"  style="cursor: pointer; float:left" value="댓글등록" > <br>
+		<input type="button" class = "button alt" id="checkJson2" style="cursor: pointer; float:right; margin-top: -25px" value="댓글삭제" onclick="deleterv(<%=num%>);"> <br>
 		
 	</form>
 	</div>

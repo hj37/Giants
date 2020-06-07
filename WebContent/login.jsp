@@ -48,8 +48,7 @@
 			<div class="container">
 				<section>
 					<header class="major">
-						<h2>Mauris vulputate dolor</h2>
-						<span class="byline">Integer sit amet pede vel arcu aliquet pretium</span>
+						<h2>Giants 커뮤니티 로그인</h2>
 					</header>
 					<form method="post" id="join" action="loginpro.jsp">
 						<div class="row half">
